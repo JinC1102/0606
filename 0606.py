@@ -21,7 +21,7 @@ if "secret_word" not in st.session_state:
     try:
         # 嘗試呼叫 Gemini 生成隨機謎底
         response = st.session_state.client.models.generate_content(
-            model='gemini-2.5-flash',
+            model='Gemini 3.1 Flash Lite',
             contents='請隨機輸出一個「常見水果」的名稱，只需輸出名稱，不要有其他廢話。'
         )
         st.session_state.secret_word = response.text.strip()
@@ -30,7 +30,8 @@ if "secret_word" not in st.session_state:
         # 🚨 如果 Google 伺服器掛掉 (ServerError) 或超時，就會跳到這裡
         st.warning("⚠️ Google API 暫時無回應，已自動啟用備用謎底！")
         # 直接硬塞一個預設的謎底，確保遊戲能繼續進行
-        st.session_state.secret_word = "蘋果"
+        st.session_state.secret_word = "榴槤"
+        
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [] 
     st.session_state.last_request_time = 0.0 
@@ -51,7 +52,7 @@ if "game_chat" not in st.session_state:
         system_instruction=system_instruction,
     )
     st.session_state.game_chat = st.session_state.client.chats.create(
-        model="gemini-2.5-flash",
+        model="Gemini 3.1 Flash Lite",
         config=config
     )
 # ==========================================
