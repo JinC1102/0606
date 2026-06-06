@@ -2,13 +2,14 @@ import streamlit as st
 from google import genai
 from google.genai import types
 import time
+import os
 
 # ==========================================
 # 1. 初始化與設定
 # ==========================================
 st.set_page_config(page_title="AI 海龜湯攻防戰", page_icon="🐢", layout="centered")
 
-API_KEY = "Gemini_API_Key"
+API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # ==========================================
 # 2. Session State 狀態管理
