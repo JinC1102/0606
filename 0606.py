@@ -8,7 +8,7 @@ import time
 # ==========================================
 st.set_page_config(page_title="AI 海龜湯攻防戰", page_icon="🐢", layout="centered")
 
-API_KEY = "Gemini API Key"
+API_KEY = "Gemini_API_Key"
 
 # ==========================================
 # 2. Session State 狀態管理
